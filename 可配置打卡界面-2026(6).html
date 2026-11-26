@@ -63,12 +63,168 @@ body{display:grid;grid-template-columns:minmax(320px,540px) 375px;justify-conten
 
 .appearance-phone .status{height:36px;font-size:13px}
 
+#app-shell:not([hidden]){display:contents}
+#app-shell[hidden],#login-screen[hidden]{display:none!important}
+.login-screen{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;min-height:100vh;min-height:100svh;padding:36px;overflow:auto;background:radial-gradient(ellipse at 14% 18%,#e1ebff 0,transparent 34%),radial-gradient(ellipse at 88% 84%,#dcefe9 0,transparent 34%),linear-gradient(135deg,#f7f9fd,#eef3f8);color:#253249}
+.login-screen:before,.login-screen:after{position:fixed;content:"";pointer-events:none;border:1px solid #fff9;border-radius:50%}
+.login-screen:before{width:520px;height:520px;top:-280px;right:-140px}
+.login-screen:after{width:370px;height:370px;bottom:-230px;left:-120px}
+.login-layout{position:relative;z-index:1;width:min(1080px,100%);display:grid;grid-template-columns:minmax(0,1fr) minmax(350px,430px);align-items:center;gap:clamp(36px,7vw,96px);margin:auto}
+.login-intro{padding:16px 0 16px 18px}
+.login-brand{display:flex;align-items:center;gap:11px;color:#24334c;font-size:15px;font-weight:700;letter-spacing:.2px}
+.login-brand-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(145deg,#3977ff,#6a94ff);color:#fff;box-shadow:0 8px 18px #3674f63b}
+.login-brand-mark svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.login-intro-copy{margin-top:clamp(58px,10vh,104px)}
+.login-eyebrow{display:inline-flex;align-items:center;gap:9px;color:#6680a7;font-size:10px;font-weight:700;letter-spacing:2.2px}
+.login-eyebrow:before{content:"";width:22px;height:1px;background:#7d9bd0}
+.login-intro h1{margin:20px 0 15px;color:#24334c;font-size:clamp(38px,5vw,58px);font-weight:650;letter-spacing:-2.2px;line-height:1.2}
+.login-intro h1 span{color:#3974f5}
+.login-intro-copy p{max-width:390px;margin:0;color:#748198;font-size:15px;line-height:1.9}
+.login-feature-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.login-feature{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #fff;border-radius:999px;background:#ffffff91;color:#68778e;font-size:12px;box-shadow:0 4px 14px #35476108}
+.login-feature svg{width:15px;height:15px;fill:none;stroke:#5482e6;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.login-card{padding:36px 36px 25px;border:1px solid #ffffffd9;border-radius:24px;background:#ffffffeb;box-shadow:0 24px 70px #3c52661a,0 2px 8px #3c52660c;backdrop-filter:blur(18px)}
+.login-card-top{display:flex;align-items:center;justify-content:space-between}
+.login-lock{width:46px;height:46px;display:grid;place-items:center;border:1px solid #e2eaff;border-radius:15px;background:#f2f6ff;color:#3974f5}
+.login-lock svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.login-card-tag{padding:7px 10px;border:1px solid #e8edf5;border-radius:999px;color:#8793a6;font-size:10px;letter-spacing:1px}
+.login-card h2{margin:27px 0 7px;color:#26344a;font-size:27px;font-weight:650;letter-spacing:-.5px}
+.login-subtitle{margin:0 0 27px;color:#8994a5;font-size:13px}
+.login-form{display:flex;flex-direction:column;gap:17px}
+.login-field{display:flex;flex-direction:column;gap:8px;color:#49566b;font-size:12px;font-weight:600}
+.login-input-wrap{height:49px;display:flex;align-items:center;gap:11px;padding:0 13px;border:1px solid #e2e7ef;border-radius:11px;background:#fbfcfe;transition:border-color .18s,box-shadow .18s,background .18s}
+.login-input-wrap:focus-within{border-color:#82a5ff;background:#fff;box-shadow:0 0 0 4px #3d76f314}
+.login-input-wrap>svg{width:18px;height:18px;flex:none;fill:none;stroke:#9ba7b8;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.login-input-wrap input{width:100%;min-width:0;height:100%;padding:0;border:0;outline:0;background:transparent;color:#27354a;font:inherit;font-size:14px}
+.login-input-wrap input::placeholder{color:#b2bac7}
+.login-password-toggle{flex:none;padding:4px 0 4px 7px;border:0;background:transparent;color:#7e8ba0;font:inherit;font-size:11px;cursor:pointer}
+.login-password-toggle:hover{color:#3974f5}
+.login-submit{height:49px;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:3px;border:0;border-radius:11px;background:linear-gradient(105deg,#3474fa,#5788ff);color:#fff;font:inherit;font-size:14px;font-weight:600;letter-spacing:.3px;box-shadow:0 8px 18px #3974f536;cursor:pointer;transition:transform .18s,box-shadow .18s,filter .18s}
+.login-submit:hover{transform:translateY(-1px);filter:saturate(1.08);box-shadow:0 11px 22px #3974f542}
+.login-submit:active{transform:translateY(0)}
+.login-submit svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.login-message{min-height:18px;margin:-5px 0 0;color:#8995a7;font-size:11px;text-align:center}
+.login-message.is-error{color:#d45b68}
+.login-card-foot{display:flex;justify-content:space-between;gap:8px;margin-top:21px;padding-top:17px;border-top:1px solid #edf0f5;color:#a0aabc;font-size:9px;letter-spacing:.7px}
+.login-card-foot span:last-child{text-align:right}
+.login-input-wrap input:focus-visible,.login-password-toggle:focus-visible,.login-submit:focus-visible{outline:2px solid #7399f9;outline-offset:3px}
+@media(max-width:760px){.login-screen{padding:28px 20px}.login-layout{width:min(450px,100%);grid-template-columns:1fr;gap:26px}.login-intro{padding:0}.login-intro-copy{margin-top:37px;text-align:center}.login-eyebrow{justify-content:center}.login-intro h1{margin:14px 0 10px;font-size:42px}.login-intro-copy p{margin:0 auto;font-size:13px}.login-feature-list{display:none}.login-card{padding:28px 27px 22px}.login-card h2{margin-top:19px}}
+@media(max-width:420px){.login-screen{padding:22px 16px}.login-layout{gap:22px}.login-intro-copy{margin-top:28px}.login-intro h1{font-size:36px}.login-card{padding:25px 21px 20px;border-radius:20px}.login-card h2{font-size:24px}.login-input-wrap{height:47px}.login-submit{height:47px}}
+@media(prefers-reduced-motion:reduce){.login-input-wrap,.login-submit{transition:none}}
+.config-header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 8px}
+.config-header h2{margin:0!important}
+.account-menu{position:relative;z-index:30;flex:none}
+.account-menu:after{position:absolute;top:100%;right:0;left:0;height:9px;content:""}
+.account-menu-trigger{height:auto!important;min-height:40px;display:flex;align-items:center;gap:9px;padding:4px 10px 4px 5px!important;border:1px solid #e1e7f0!important;border-radius:12px!important;background:#fff!important;color:#3b4960!important;box-shadow:0 2px 8px #29394d08;cursor:pointer}
+.account-menu-trigger:hover{border-color:#cbd8ef!important;background:#f9fbff!important}
+.account-avatar{width:29px;height:29px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(145deg,#3474fa,#79a0ff);color:#fff;font-size:12px;font-weight:700}
+.account-menu-user{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.account-menu-user strong{color:#35435b;font-size:12px;line-height:14px}
+.account-menu-user small{color:#9aa4b3;font-size:10px;line-height:12px}
+.account-menu-chevron{width:13px;height:13px;fill:none;stroke:#8692a4;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s}
+.account-menu:hover .account-menu-chevron,.account-menu:focus-within .account-menu-chevron,.account-menu.is-open .account-menu-chevron{transform:rotate(180deg)}
+.account-menu-panel{position:absolute;top:calc(100% + 8px);right:0;z-index:5;width:194px;padding:8px;border:1px solid #e8edf4;border-radius:13px;background:#fff;box-shadow:0 14px 38px #26344a20;visibility:hidden;opacity:0;pointer-events:none;transform:translateY(6px);transition:opacity .16s,transform .16s,visibility .16s}
+.account-menu:hover .account-menu-panel,.account-menu:focus-within .account-menu-panel,.account-menu.is-open .account-menu-panel{visibility:visible;opacity:1;pointer-events:auto;transform:translateY(0)}
+.account-menu-panel-summary{display:flex;flex-direction:column;gap:4px;padding:10px 10px 12px;border-bottom:1px solid #f0f2f6}
+.account-menu-panel-summary strong{color:#344157;font-size:12px}
+.account-menu-panel-summary small{color:#9aa5b4;font-size:10px}
+.config .account-menu-item{width:100%;height:38px!important;display:flex;align-items:center;gap:10px;margin-top:4px;padding:0 10px!important;border:0!important;border-radius:8px!important;background:transparent!important;color:#526078!important;text-align:left;font-family:inherit;font-size:12px;font-weight:500;cursor:pointer}
+.config .account-menu-item:hover{background:#f3f6fc!important;color:#2f68e8!important}
+.config .account-menu-item svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#change-password-button[hidden]{display:none!important}
+.password-dialog{width:min(430px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 32px);padding:0;overflow:auto;border:1px solid #ffffffd9;border-radius:22px;background:#fff;box-shadow:0 24px 80px #17284036;color:#29364b}
+.password-dialog::backdrop{background:#15233b70;backdrop-filter:blur(4px)}
+.password-dialog-form{display:flex;flex-direction:column;gap:15px;padding:28px}
+.password-dialog-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.password-dialog-eyebrow{color:#7b8aa2;font-size:9px;font-weight:700;letter-spacing:1.7px}
+.password-dialog-top h2{margin:7px 0 0;color:#28364d;font-size:22px}
+.password-dialog-close{width:32px;height:32px;display:grid;place-items:center;border:0;border-radius:9px;background:#f4f6fa;color:#78869b;font-size:21px;cursor:pointer}
+.password-dialog-close:hover{background:#eaf0fb;color:#386fe8}
+.password-dialog-description{margin:-7px 0 2px;color:#8692a4;font-size:12px;line-height:1.7}
+.password-dialog-field{display:flex;flex-direction:column;gap:7px;color:#4c5a70;font-size:12px;font-weight:600}
+.password-dialog-field input,.password-dialog-field select{width:100%;height:43px;padding:0 11px;border:1px solid #dfe5ee;border-radius:9px;background:#fbfcfe;color:#2c3a50;font:inherit;font-size:13px}
+.password-dialog-field input:focus,.password-dialog-field select:focus{outline:2px solid #c3d5ff;border-color:#6d95f7}
+.password-dialog-message{min-height:17px;margin:-3px 0;color:#8491a4;font-size:11px}
+.password-dialog-message.is-error{color:#d45b68}
+.password-dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:2px}
+.password-dialog-actions button{height:40px;padding:0 16px;border:1px solid #dfe5ee;border-radius:9px;background:#fff;color:#5b687c;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer}
+.password-dialog-actions button:hover{background:#f6f8fb}
+.password-dialog-actions button[type="submit"]{border-color:#3974f5;background:#3974f5;color:#fff}
+.password-dialog-actions button[type="submit"]:hover{border-color:#2863e5;background:#2863e5}
+@media(max-width:420px){.config-header{gap:7px}.config-header h2{font-size:18px}.account-menu-trigger{min-height:38px;gap:6px;padding-right:7px!important}.account-menu-panel{width:184px}.password-dialog-form{padding:23px 20px}}
+@media(prefers-reduced-motion:reduce){.account-menu-chevron,.account-menu-panel{transition:none}}
 </style>
 </head>
 <body>
+<section id="login-screen" class="login-screen" aria-labelledby="login-heading">
+  <div class="login-layout">
+    <div class="login-intro">
+      <div class="login-brand">
+        <span class="login-brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.2 18 20 6.5"/><path d="M12 3.5 20 6v5.5c0 4.1-2.6 7.4-8 9-5.4-1.6-8-4.9-8-9V6z" opacity=".55"/></svg></span>
+        <span>打卡界面 · 个人工作台</span>
+      </div>
+      <div class="login-intro-copy">
+        <span class="login-eyebrow">ATTENDANCE STUDIO</span>
+        <h1 id="login-heading">让每一次打卡<br><span>都刚刚好。</span></h1>
+        <p>配置日期、时间与界面细节，实时预览专属打卡页面。登录后即可继续上次保存的设置。</p>
+      </div>
+      <div class="login-feature-list" aria-hidden="true">
+        <span class="login-feature"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 3v4m8-4v4M4 10h16"/></svg>灵活设置日期</span>
+        <span class="login-feature"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>实时同步预览</span>
+        <span class="login-feature"><svg viewBox="0 0 24 24"><path d="M5 3h14v18l-7-4-7 4z"/><path d="m9 11 2 2 4-4"/></svg>自动保存配置</span>
+      </div>
+    </div>
+
+    <div class="login-card">
+      <div class="login-card-top">
+        <span class="login-lock" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3"/></svg></span>
+        <span class="login-card-tag">MEMBER ACCESS</span>
+      </div>
+      <h2>欢迎回来</h2>
+      <p class="login-subtitle">登录后继续使用打卡界面</p>
+      <form id="login-form" class="login-form" autocomplete="on">
+        <label class="login-field" for="login-username">账号
+          <span class="login-input-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            <input id="login-username" name="username" type="text" placeholder="请输入账号" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+          </span>
+        </label>
+        <label class="login-field" for="login-password">密码
+          <span class="login-input-wrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            <input id="login-password" name="password" type="password" placeholder="请输入密码" autocomplete="current-password" required>
+            <button id="toggle-password" class="login-password-toggle" type="button" aria-label="显示密码" aria-pressed="false">显示</button>
+          </span>
+        </label>
+        <button class="login-submit" type="submit"><span>登录并进入</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+        <p id="login-message" class="login-message" aria-live="polite">请输入账号和密码继续</p>
+      </form>
+      <div class="login-card-foot"><span>LOCAL ACCESS</span><span>2026 · ATTENDANCE STUDIO</span></div>
+    </div>
+  </div>
+</section>
+<main id="app-shell" hidden>
 
 <section class="config" aria-labelledby="config-heading">
-<h2 id="config-heading">打卡界面配置</h2>
+<div class="config-header">
+  <h2 id="config-heading">打卡界面配置</h2>
+  <div class="account-menu" id="account-menu">
+    <button id="account-menu-trigger" class="account-menu-trigger" type="button" aria-expanded="false" aria-controls="account-menu-panel" aria-label="账户菜单">
+      <span class="account-avatar" id="account-avatar" aria-hidden="true">A</span>
+      <span class="account-menu-user"><strong id="account-name">admin</strong><small id="account-role">管理员</small></span>
+      <svg class="account-menu-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 6 5 5 5-5"/></svg>
+    </button>
+    <div class="account-menu-panel" id="account-menu-panel">
+      <div class="account-menu-panel-summary"><strong id="menu-account-name">admin</strong><small id="menu-account-role">管理员账号</small></div>
+      <button id="change-password-button" class="account-menu-item" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4l10.8-10.8a2.8 2.8 0 0 0-4-4L4 16z"/><path d="m13.5 6.5 4 4M4 20l4-1"/></svg><span>修改密码</span>
+      </button>
+      <button id="logout-button" class="account-menu-item" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17l5-5-5-5m5 5H3"/><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7"/></svg><span>退出登录</span>
+      </button>
+    </div>
+  </div>
+</div>
 <p>在这里填写参数，手机界面实时更新。点击日历可选择日期；蓝点表示工作日，包含调休上班日。</p>
 <div class="config-grid">
 <label class="field">选择日期（2026年）<input id="config-date" type="date" min="2026-01-01" max="2026-12-31" value="2026-05-27"></label>
@@ -418,5 +574,281 @@ body{display:grid;grid-template-columns:minmax(320px,540px) 375px;justify-conten
   syncControls();render();save();
 })();
 
+</script>
+</main>
+<dialog id="password-dialog" class="password-dialog" aria-labelledby="password-dialog-title">
+  <form id="password-form" class="password-dialog-form">
+    <div class="password-dialog-top">
+      <div><span class="password-dialog-eyebrow">ACCOUNT SECURITY</span><h2 id="password-dialog-title">修改密码</h2></div>
+      <button id="close-password-dialog" class="password-dialog-close" type="button" aria-label="关闭">×</button>
+    </div>
+    <p class="password-dialog-description">管理员可以修改自己的密码，也可以为普通账号设置新密码。</p>
+    <label class="password-dialog-field" for="password-target">选择账号
+      <select id="password-target"><option value="admin">admin（管理员）</option><option value="user">user（普通用户）</option></select>
+    </label>
+    <label class="password-dialog-field" for="new-password">新密码
+      <input id="new-password" type="password" autocomplete="new-password" maxlength="128" placeholder="请输入新密码" required>
+    </label>
+    <label class="password-dialog-field" for="confirm-password">确认新密码
+      <input id="confirm-password" type="password" autocomplete="new-password" maxlength="128" placeholder="请再次输入新密码" required>
+    </label>
+    <p id="password-dialog-message" class="password-dialog-message" aria-live="polite">密码会保存在当前浏览器中。</p>
+    <div class="password-dialog-actions">
+      <button id="cancel-password-dialog" type="button">取消</button>
+      <button type="submit">保存密码</button>
+    </div>
+  </form>
+</dialog>
+<script>
+(() => {
+  'use strict';
+
+  const ACCOUNTS_KEY = 'attendance-auth-accounts-v1';
+  const SESSION_KEY = 'attendance-auth-session-v1';
+  const SESSION_DURATION = 2 * 24 * 60 * 60 * 1000;
+  const DEFAULT_ACCOUNTS = {admin:'admin', user:'user'};
+  const loginScreen = document.getElementById('login-screen');
+  const appShell = document.getElementById('app-shell');
+  const loginForm = document.getElementById('login-form');
+  const usernameInput = document.getElementById('login-username');
+  const passwordInput = document.getElementById('login-password');
+  const loginMessage = document.getElementById('login-message');
+  const togglePassword = document.getElementById('toggle-password');
+  const accountMenu = document.getElementById('account-menu');
+  const accountMenuTrigger = document.getElementById('account-menu-trigger');
+  const accountName = document.getElementById('account-name');
+  const accountRole = document.getElementById('account-role');
+  const accountAvatar = document.getElementById('account-avatar');
+  const menuAccountName = document.getElementById('menu-account-name');
+  const menuAccountRole = document.getElementById('menu-account-role');
+  const changePasswordButton = document.getElementById('change-password-button');
+  const logoutButton = document.getElementById('logout-button');
+  const passwordDialog = document.getElementById('password-dialog');
+  const passwordForm = document.getElementById('password-form');
+  const passwordTarget = document.getElementById('password-target');
+  const newPasswordInput = document.getElementById('new-password');
+  const confirmPasswordInput = document.getElementById('confirm-password');
+  const passwordDialogMessage = document.getElementById('password-dialog-message');
+  let accounts = loadAccounts();
+  let activeSession = null;
+  let expirationTimer = 0;
+
+  function loadAccounts() {
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(ACCOUNTS_KEY) || 'null'); } catch (_) {}
+    const next = {...DEFAULT_ACCOUNTS};
+    if (saved && typeof saved === 'object' && !Array.isArray(saved)) {
+      ['admin','user'].forEach(name => {
+        if (typeof saved[name] === 'string' && saved[name].length > 0 && saved[name].length <= 128) next[name] = saved[name];
+      });
+    }
+    try { localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(next)); } catch (_) {}
+    return next;
+  }
+
+  function setLoginMessage(text, isError) {
+    loginMessage.textContent = text;
+    loginMessage.classList.toggle('is-error', Boolean(isError));
+  }
+
+  function setPasswordMessage(text, isError) {
+    passwordDialogMessage.textContent = text;
+    passwordDialogMessage.classList.toggle('is-error', Boolean(isError));
+  }
+
+  function closeAccountMenu() {
+    accountMenu.classList.remove('is-open');
+    accountMenuTrigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function readSession() {
+    try {
+      const session = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
+      if (session && (session.username === 'admin' || session.username === 'user') &&
+          Object.prototype.hasOwnProperty.call(accounts, session.username) &&
+          Number.isFinite(session.expiresAt) && session.expiresAt > Date.now()) return session;
+      if (session) localStorage.removeItem(SESSION_KEY);
+    } catch (_) {}
+    return null;
+  }
+
+  function updateAccountMenu(username) {
+    const isAdmin = username === 'admin';
+    accountName.textContent = username;
+    menuAccountName.textContent = username;
+    accountRole.textContent = isAdmin ? '管理员' : '普通用户';
+    menuAccountRole.textContent = isAdmin ? '管理员账号' : '普通用户账号';
+    accountAvatar.textContent = username.slice(0, 1).toUpperCase();
+    changePasswordButton.hidden = !isAdmin;
+  }
+
+  function activateSession(session) {
+    if (!session || session.expiresAt <= Date.now()) {
+      requireLogin('登录已过期，请重新登录。');
+      return;
+    }
+    activeSession = session;
+    updateAccountMenu(session.username);
+    closeAccountMenu();
+    loginScreen.hidden = true;
+    appShell.hidden = false;
+    window.clearTimeout(expirationTimer);
+    expirationTimer = window.setTimeout(checkSession, session.expiresAt - Date.now());
+  }
+
+  function requireLogin(message) {
+    window.clearTimeout(expirationTimer);
+    expirationTimer = 0;
+    activeSession = null;
+    appShell.hidden = true;
+    loginScreen.hidden = false;
+    closeAccountMenu();
+    closePasswordDialog();
+    loginForm.reset();
+    passwordInput.type = 'password';
+    togglePassword.textContent = '显示';
+    togglePassword.setAttribute('aria-label', '显示密码');
+    togglePassword.setAttribute('aria-pressed', 'false');
+    if (message) setLoginMessage(message, false);
+  }
+
+  function checkSession() {
+    if (!activeSession) return;
+    const session = readSession();
+    if (!session) {
+      requireLogin('登录已过期或已退出，请重新登录。');
+      return;
+    }
+    if (session.username !== activeSession.username || session.expiresAt !== activeSession.expiresAt) activateSession(session);
+  }
+
+  function openPasswordDialog() {
+    if (!activeSession || activeSession.username !== 'admin') return;
+    if (activeSession.expiresAt <= Date.now()) {
+      checkSession();
+      return;
+    }
+    closeAccountMenu();
+    passwordForm.reset();
+    passwordTarget.value = 'admin';
+    setPasswordMessage('密码会保存在当前浏览器中。', false);
+    if (typeof passwordDialog.showModal === 'function') passwordDialog.showModal();
+    else passwordDialog.setAttribute('open', '');
+    newPasswordInput.focus();
+  }
+
+  function closePasswordDialog() {
+    if (passwordDialog.open && typeof passwordDialog.close === 'function') passwordDialog.close();
+    else passwordDialog.removeAttribute('open');
+  }
+
+  togglePassword.addEventListener('click', () => {
+    const showing = passwordInput.type === 'password';
+    passwordInput.type = showing ? 'text' : 'password';
+    togglePassword.textContent = showing ? '隐藏' : '显示';
+    togglePassword.setAttribute('aria-label', showing ? '隐藏密码' : '显示密码');
+    togglePassword.setAttribute('aria-pressed', String(showing));
+    passwordInput.focus();
+  });
+
+  loginForm.addEventListener('input', () => setLoginMessage('请输入账号和密码继续', false));
+
+  loginForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const username = usernameInput.value.trim();
+    if ((username !== 'admin' && username !== 'user') || passwordInput.value !== accounts[username]) {
+      setLoginMessage('账号或密码不正确，请检查后重试。', true);
+      passwordInput.value = '';
+      passwordInput.focus();
+      return;
+    }
+    const session = {username, expiresAt: Date.now() + SESSION_DURATION};
+    try {
+      localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+    } catch (_) {
+      setLoginMessage('浏览器本地存储不可用，无法保存两天登录状态。', true);
+      return;
+    }
+    activateSession(session);
+  });
+
+  accountMenuTrigger.addEventListener('click', () => {
+    const open = accountMenu.classList.toggle('is-open');
+    accountMenuTrigger.setAttribute('aria-expanded', String(open));
+  });
+
+  document.addEventListener('click', event => {
+    if (!accountMenu.contains(event.target)) closeAccountMenu();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeAccountMenu();
+  });
+
+  changePasswordButton.addEventListener('click', openPasswordDialog);
+  document.getElementById('close-password-dialog').addEventListener('click', closePasswordDialog);
+  document.getElementById('cancel-password-dialog').addEventListener('click', closePasswordDialog);
+
+  passwordForm.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!activeSession || activeSession.username !== 'admin' || activeSession.expiresAt <= Date.now()) {
+      checkSession();
+      setPasswordMessage('请使用管理员账号重新登录后再修改密码。', true);
+      return;
+    }
+    const target = passwordTarget.value;
+    const nextPassword = newPasswordInput.value;
+    if ((target !== 'admin' && target !== 'user') || !nextPassword) {
+      setPasswordMessage('请选择账号并输入新密码。', true);
+      return;
+    }
+    if (nextPassword !== confirmPasswordInput.value) {
+      setPasswordMessage('两次输入的密码不一致，请重新确认。', true);
+      confirmPasswordInput.focus();
+      return;
+    }
+    const previousPassword = accounts[target];
+    accounts[target] = nextPassword;
+    try {
+      localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(accounts));
+    } catch (_) {
+      accounts[target] = previousPassword;
+      setPasswordMessage('浏览器本地存储不可用，密码没有保存。', true);
+      return;
+    }
+    newPasswordInput.value = '';
+    confirmPasswordInput.value = '';
+    setPasswordMessage(target + ' 账号的密码已更新，下次登录时生效。', false);
+  });
+
+  logoutButton.addEventListener('click', () => {
+    try { localStorage.removeItem(SESSION_KEY); } catch (_) {}
+    requireLogin('已退出登录，请重新登录。');
+    usernameInput.focus();
+  });
+
+  window.addEventListener('storage', event => {
+    if (event.key === ACCOUNTS_KEY) accounts = loadAccounts();
+    if (event.key === SESSION_KEY && activeSession) {
+      const session = readSession();
+      if (session) activateSession(session);
+      else requireLogin('登录状态已结束，请重新登录。');
+    }
+  });
+
+  window.addEventListener('focus', checkSession);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) checkSession();
+  });
+
+  let expiredSessionAtLoad = false;
+  try {
+    const savedSession = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null');
+    expiredSessionAtLoad = Boolean(savedSession && Number.isFinite(savedSession.expiresAt) && savedSession.expiresAt <= Date.now());
+  } catch (_) {}
+  const savedSession = readSession();
+  if (savedSession) activateSession(savedSession);
+  else if (expiredSessionAtLoad) setLoginMessage('登录已过期，请重新登录。', false);
+})();
 </script>
 </body></html>
