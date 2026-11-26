@@ -52,7 +52,11 @@
     .submit-button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
     .login-message{min-height:24px;margin:-4px 0 0;color:#d45b68;font-size:16px;line-height:1.5;text-align:left}
     .login-message.error{color:#d45b68}
-    .login-footer{display:flex;justify-content:space-between;gap:8px;margin-top:19px;padding-top:16px;border-top:1px solid #edf0f5;color:#a0aabc;font-size:9px;letter-spacing:.7px}
+    .after-sales{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:20px;padding-top:16px;border-top:1px solid #edf0f5;color:#8995a6;font-size:12px;line-height:1.5}
+    .after-sales svg{display:block;width:14px;height:14px;flex:0 0 14px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .after-sales a{color:#3974f5;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}
+    .after-sales a:hover{color:#245bc7;text-decoration:underline;text-underline-offset:3px}
+    .after-sales a:focus-visible{outline:2px solid #82a5ff;outline-offset:4px;border-radius:3px}
 
     .workspace{min-height:100vh;display:flex;flex-direction:column;background:#f2f5f9}
     .app-header{position:sticky;top:0;z-index:5;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:0 clamp(18px,4vw,54px);border-bottom:1px solid #e8edf3;background:#ffffffed;box-shadow:0 3px 16px #25364d08;backdrop-filter:blur(16px)}
@@ -146,7 +150,7 @@
     const SESSION_KEY='attendance-shell-session-v1';
     const TEMPLATE_KEY='attendance-shell-template-v1';
     const SESSION_MS=2*24*60*60*1000;
-    const PRESET_PASSWORD='admin1';
+    const PRESET_PASSWORD='admin';
     const TEMPLATES={hy:{src:'./hy-钉钉打卡.html',title:'HY 打卡模板'},kz:{src:'./kz-钉钉打卡.html',title:'KZ 打卡模板'}};
     const loginScreen=document.getElementById('login-screen');
     const workspace=document.getElementById('workspace');
