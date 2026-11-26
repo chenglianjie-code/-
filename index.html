@@ -177,8 +177,8 @@
       if(hasStoredPasswordMismatch())credentialMismatch=true;
       if(!credentialMismatch)return true;
       try{localStorage.removeItem(SESSION_KEY)}catch(_){}
-      requireLogin('本地保存的密码与预设密码不一致，请使用 admin 重新登录。');
-      setLoginMessage('本地保存的密码与预设密码不一致，请使用 admin 重新登录。',true);
+      requireLogin('请重新登录');
+      setLoginMessage('请重新登录。',true);
       return false;
     }
     function setLoginMessage(text,error){loginMessage.textContent=text;loginMessage.classList.toggle('error',Boolean(error))}
